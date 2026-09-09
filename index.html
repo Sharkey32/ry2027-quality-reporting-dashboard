@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RY 2027 Pay-for-Reporting Quick Reference — IQR · PI · OQR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1F33;
+    --ink-2:#122B45;
+    --paper:#F4F7F6;
+    --panel:#FFFFFF;
+    --line:#DCE3E6;
+    --slate:#4E6270;
+    --slate-soft:#8397A3;
+    --teal:#166D66;
+    --teal-soft:#E4F1EF;
+    --good:#1F7A52;
+    --good-soft:#E4F3EA;
+    --sev-high:#B23A2E;     /* PI */
+    --sev-high-soft:#F8E6E3;
+    --sev-mid:#B5701E;      /* IQR */
+    --sev-mid-soft:#F8EEDD;
+    --sev-flat:#2E6E86;     /* OQR */
+    --sev-flat-soft:#E3EFF3;
+    --amber:#B5701E;
+    --amber-soft:#F8EEDD;
+    --gray-chip:#EDF0F1;
+    --shadow: 0 1px 2px rgba(11,31,51,0.04), 0 8px 24px rgba(11,31,51,0.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',sans-serif;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{ font-family:'IBM Plex Mono',monospace; letter-spacing:-0.01em; }
+  a{color:inherit;}
+
+  /* ===== HERO ===== */
+  .hero{
+    background:
+      radial-gradient(1100px 480px at 82% -10%, rgba(255,255,255,0.06), transparent 60%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:#F2F6F5;
+    padding:56px 28px 40px;
+  }
+  .hero-inner{ max-width:1180px; margin:0 auto; }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:#8FD4C8;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:#8FD4C8;
+    box-shadow:0 0 0 4px rgba(143,212,200,0.18);
+  }
+  .hero h1{
+    font-size:clamp(30px, 4vw, 46px);
+    font-weight:700;
+    max-width:14ch;
+    color:#fff;
+  }
+  .hero p.sub{
+    max-width:60ch;
+    margin-top:16px;
+    font-size:16.5px;
+    color:#C7D3D6;
+  }
+  .rule-banner{
+    margin-top:28px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:10px;
+    padding:14px 18px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    max-width:780px;
+  }
+  .rule-banner .flag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    background:#8FD4C8;
+    color:#08201C;
+    padding:3px 7px;
+    border-radius:4px;
+    font-weight:600;
+    flex:none;
+    margin-top:1px;
+  }
+  .rule-banner p{ margin:0; font-size:14.5px; color:#E4ECEB;}
+
+  .jumpnav{
+    max-width:1180px;
+    margin:26px auto 0;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .jumpnav a{
+    text-decoration:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.22);
+    color:#E4ECEB;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .jumpnav a:hover{ background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.4);}
+
+  /* ===== STAKES STRIP ===== */
+  .stakes{
+    max-width:1180px;
+    margin:-34px auto 0;
+    padding:0 28px;
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  @media(max-width:880px){ .stakes{grid-template-columns:1fr;} }
+
+  .stake-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    padding:20px 20px 18px;
+  }
+  .stake-top{
+    display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;
+  }
+  .stake-name{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;}
+  .stake-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    padding:2px 7px;
+    border-radius:4px;
+  }
+  .tag-report{ background:var(--teal-soft); color:var(--teal); }
+
+  .gauge-wrap{ display:flex; align-items:center; gap:14px; margin-top:10px;}
+  .gauge-num{ font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:26px; line-height:1;}
+  .gauge-num small{ font-size:12px; font-weight:500; color:var(--slate-soft); display:block; margin-top:3px;}
+  .stake-desc{ font-size:12.8px; color:var(--slate); margin-top:10px; line-height:1.45;}
+
+  .flat-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--sev-flat-soft); color:var(--sev-flat);
+    border-radius:8px; padding:10px 12px; margin-top:8px;
+  }
+  .flat-badge .n{ font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:20px;}
+  .flat-badge .l{ font-size:11.5px; line-height:1.25; }
+  .diffbase{
+    margin-top:9px; font-size:11.5px; color:var(--slate-soft); font-style:italic;
+  }
+
+  /* ===== MAIN SECTIONS ===== */
+  main{ max-width:1180px; margin:0 auto; padding:48px 28px 80px;}
+
+  .prog-section{ margin-bottom:64px; scroll-margin-top:24px; }
+  .prog-head{
+    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+    border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:22px;
+  }
+  .prog-code{
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; letter-spacing:-0.02em;
+  }
+  .prog-full{ font-size:14.5px; color:var(--slate); }
+  .prog-meta-row{
+    margin-left:auto;
+    display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .meta-chip{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+    background:var(--gray-chip); color:var(--ink); border-radius:999px; padding:6px 12px;
+  }
+
+  .fact-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:26px;
+  }
+  @media(max-width:880px){ .fact-grid{ grid-template-columns:repeat(2,1fr);} }
+  .fact{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px;
+  }
+  .fact .k{ font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--slate-soft); font-family:'IBM Plex Mono',monospace;}
+  .fact .v{ margin-top:6px; font-size:14.5px; font-weight:600; }
+
+  .subhead{
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px; margin:34px 0 4px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .subhead .cnt{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--slate-soft); font-weight:500;
+  }
+  .subnote{ font-size:13.5px; color:var(--slate); margin:0 0 16px; max-width:80ch;}
+
+  .checklist{
+    display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(300px,1fr));
+  }
+  .item{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:13px 14px; display:flex; flex-direction:column; gap:7px;
+  }
+  .item-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:8px;}
+  .item-code{ font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:13.5px;}
+  .item-name{ font-size:12.8px; color:var(--slate); margin-top:2px; }
+  .item-detail{ font-size:12.3px; color:var(--slate-soft); line-height:1.4; }
+
+  .status{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.05em;
+    padding:3px 8px; border-radius:5px; white-space:nowrap; flex:none;
+  }
+  .st-mandatory{ background:var(--good-soft); color:var(--good); }
+  .st-select{ background:var(--teal-soft); color:var(--teal); }
+  .st-new{ background:var(--sev-mid-soft); color:var(--sev-mid); }
+  .st-voluntary{ background:var(--gray-chip); color:var(--slate); }
+  .st-removed{ background:var(--gray-chip); color:var(--slate-soft); }
+  .st-proposed{ background:#fff; color:var(--sev-high); border:1px dashed var(--sev-high); }
+  .st-noSub{ background:var(--gray-chip); color:var(--slate-soft); }
+
+  .callout{
+    margin-top:20px; border-radius:10px; padding:16px 18px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .callout.info{ background:var(--teal-soft); }
+  .callout.warn{ background:var(--sev-mid-soft); }
+  .callout.risk{ background:var(--sev-high-soft); }
+  .callout .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase;
+    padding:3px 7px; border-radius:5px; flex:none; margin-top:1px; font-weight:600;
+  }
+  .callout.info .tag{ background:var(--teal); color:#fff; }
+  .callout.warn .tag{ background:var(--sev-mid); color:#fff; }
+  .callout.risk .tag{ background:var(--sev-high); color:#fff; }
+  .callout p{ margin:0; font-size:13.6px; color:var(--ink); }
+
+  /* PI points bar */
+  .pi-points{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin-top:8px;
+  }
+  .pi-bar-track{
+    height:34px; border-radius:8px; background:var(--gray-chip); overflow:hidden;
+    display:flex; margin-top:14px; border:1px solid var(--line);
+  }
+  .pi-seg{ display:flex; align-items:center; justify-content:center; color:#fff; font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; }
+  .pi-legend{ display:flex; flex-wrap:wrap; gap:14px; margin-top:12px; }
+  .pi-legend div{ display:flex; align-items:center; gap:7px; font-size:12px; color:var(--slate); }
+  .pi-legend .dot{ width:10px; height:10px; border-radius:3px; flex:none; }
+  .pi-threshold-note{ margin-top:14px; font-size:12.8px; color:var(--slate); }
+  .pi-threshold-note b{ color:var(--ink); }
+
+  footer{
+    background:var(--ink); color:#B9C6CB; padding:36px 28px; font-size:12.8px;
+  }
+  footer .foot-inner{ max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+  footer .brand{ font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:700; font-size:15px;}
+  footer .src{ max-width:640px; line-height:1.6;}
+
+  @media print{
+    .jumpnav{display:none;}
+    body{background:#fff;}
+    .hero{background:var(--ink);}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Medisolv · CSM Quick Reference · Reporting Year 2027</div>
+    <h1>Three pay‑for‑reporting programs. One shared rule that decides everything.</h1>
+    <p class="sub">IQR, Promoting Interoperability, and OQR don't grade performance — they grade whether the hospital showed up. A single missed submission triggers a penalty regardless of quality outcomes, and CMS gives no partial credit.</p>
+
+    <div class="rule-banner">
+      <span class="flag">Rule #1</span>
+      <p>These are <b>pay-for-reporting</b> programs, not pay-for-performance. The hospital is penalized for failing to <i>submit</i> data — not for what the data shows. That's the single most important thing to communicate to a customer in year one.</p>
+    </div>
+
+    <nav class="jumpnav">
+      <a href="#iqr">↓ IQR</a>
+      <a href="#pi">↓ Promoting Interoperability</a>
+      <a href="#oqr">↓ OQR</a>
+    </nav>
+  </div>
+</div>
+
+<div class="stakes">
+  <!-- IQR -->
+  <div class="stake-card">
+    <div class="stake-top">
+      <span class="stake-name">IQR</span>
+      <span class="stake-tag tag-report">Pay for reporting</span>
+    </div>
+    <div class="gauge-wrap">
+      <div class="gauge-num" style="color:var(--sev-mid)">25%<small>of Annual Payment Update</small></div>
+    </div>
+    <div style="height:8px;background:var(--gray-chip);border-radius:6px;overflow:hidden;margin-top:10px;">
+      <div style="width:25%;height:100%;background:var(--sev-mid);"></div>
+    </div>
+    <p class="stake-desc">One-fourth reduction to the APU. A single missed measure submission, DACA, structural attestation, or validation response triggers the <b>full</b> penalty — not a partial one.</p>
+  </div>
+
+  <!-- PI -->
+  <div class="stake-card">
+    <div class="stake-top">
+      <span class="stake-name">Promoting Interoperability</span>
+      <span class="stake-tag tag-report">Pay for reporting</span>
+    </div>
+    <div class="gauge-wrap">
+      <div class="gauge-num" style="color:var(--sev-high)">75%<small>of Annual Payment Update</small></div>
+    </div>
+    <div style="height:8px;background:var(--gray-chip);border-radius:6px;overflow:hidden;margin-top:10px;">
+      <div style="width:75%;height:100%;background:var(--sev-high);"></div>
+    </div>
+    <p class="stake-desc">Largest penalty of the three. Requires a minimum of <b>80 points</b> across required objectives, plus a full year of eCQM data.</p>
+  </div>
+
+  <!-- OQR -->
+  <div class="stake-card">
+    <div class="stake-top">
+      <span class="stake-name">OQR</span>
+      <span class="stake-tag tag-report">Pay for reporting</span>
+    </div>
+    <div class="flat-badge">
+      <span class="n">−2pp</span>
+      <span class="l">off the<br>OPPS APU</span>
+    </div>
+    <p class="diffbase">⚠ Different base than IQR/PI — this is a flat 2-percentage-point deduction from the <b>outpatient</b> payment update, not a percentage reduction of the same APU. Don't compare this number directly to the two above.</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- ============ IQR ============ -->
+  <section class="prog-section" id="iqr">
+    <div class="prog-head">
+      <div class="prog-code">IQR</div>
+      <div class="prog-full">Hospital Inpatient Quality Reporting Program</div>
+      <div class="prog-meta-row">
+        <span class="meta-chip">RY 2027 → FY 2029 payment</span>
+      </div>
+    </div>
+
+    <div class="fact-grid">
+      <div class="fact"><div class="k">Type</div><div class="v">Pay for reporting</div></div>
+      <div class="fact"><div class="k">Penalty</div><div class="v">25% of APU · no partial credit</div></div>
+      <div class="fact"><div class="k">Submission</div><div class="v">Yes — extensive</div></div>
+      <div class="fact"><div class="k">Applies to</div><div class="v">All subsection (d) IPPS hospitals, any bed size</div></div>
+    </div>
+
+    <div class="subhead">eCQMs <span class="cnt">9 required for RY 2027 (6 mandatory + 3 self-selected) — plus a wider roster of available measures worth building toward now</span></div>
+    <p class="subnote">Submitted as QRDA Category I files through the HQR Secure Portal, all four quarters. A successful eCQM submission here also satisfies the eCQM component of Promoting Interoperability.</p>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">CMS506</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Safe Use of Opioids, Concurrent Prescribing</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">PC-02</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Cesarean Birth</div><div class="item-detail">Zero Denominator Declaration expected if no labor &amp; delivery service.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">PC-07</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Severe Obstetric Complications</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">PC-08</span><span class="status st-voluntary">Available</span></div><div class="item-name">Joint Commission measure</div><div class="item-detail">Available in Medisolv for 2027.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HH-Hypo</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hospital Harm — Severe Hypoglycemia</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HH-Hyper</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hospital Harm — Severe Hyperglycemia</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HH-ORAE</span><span class="status st-new">New · Mandatory</span></div><div class="item-name">Hospital Harm — Opioid-Related Adverse Events</div><div class="item-detail">Newly required starting RY 2027.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HH-PI</span><span class="status st-select">Recommended pick</span></div><div class="item-name">Hospital Harm — Pressure Injury</div><div class="item-detail">Becomes mandatory RY 2028 — select now to build the workflow early.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HH-AKI</span><span class="status st-select">Recommended pick</span></div><div class="item-name">Hospital Harm — Acute Kidney Injury</div><div class="item-detail">Becomes mandatory RY 2028.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HH-FI</span><span class="status st-select">Recommended pick</span></div><div class="item-name">Hospital Harm — Falls with Injury</div><div class="item-detail">Becomes mandatory RY 2028.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HH-RF</span><span class="status st-select">Recommended pick</span></div><div class="item-name">Hospital Harm — Respiratory Failure</div><div class="item-detail">Becomes mandatory RY 2028.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">MCS</span><span class="status st-select">Recommended pick</span></div><div class="item-name">Malnutrition Care Score</div><div class="item-detail">Becomes mandatory RY 2028.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HH-VTE</span><span class="status st-voluntary">Available</span></div><div class="item-name">Hospital Harm — Postoperative VTE</div><div class="item-detail">Available in Medisolv 2027 → available to submit to CMS 2028 → mandatory 2030. Longest runway of any Hospital Harm measure — good one to build early and bank.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Advance Care Plan</span><span class="status st-voluntary">Available</span></div><div class="item-name">Advance Care Planning eCQM</div><div class="item-detail">Available in Medisolv 2027 → available to submit to CMS 2028.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">STK-03 / STK-05</span><span class="status st-voluntary">Available</span></div><div class="item-name">Stroke measures</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">STK-02 / VTE-1 / VTE-2</span><span class="status st-removed">Last year available</span></div><div class="item-name">Antithrombotic &amp; VTE prophylaxis</div><div class="item-detail">Removed beginning RY 2028 — don't build new workflows around these.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">IP-ExRad</span><span class="status st-voluntary">Available</span></div><div class="item-name">Excessive Radiation Dose, Diagnostic CT</div></div>
+    </div>
+    <div class="callout warn">
+      <span class="tag">Recommendation</span>
+      <p>Our guidance: work toward getting <b>all Hospital Harm eCQMs</b> up and running in 2027 — HH-PI, HH-AKI, HH-FI, and HH-RF all become mandatory in RY 2028, and HH-VTE follows in 2030. Building the data capture now, ahead of the deadline, spreads the work across multiple years instead of compressing it into one.</p>
+    </div>
+    <div class="callout info">
+      <span class="tag">Validation applies here too</span>
+      <p>eCQM validation isn't just an outpatient/OQR concept — CMS already runs it on the <b>inpatient</b> side under IQR. CMS randomly selects up to 200 subsection (d) hospitals, plus targets up to 200 more, for chart-abstracted and eCQM validation each year. Accuracy needs to hold up to re-abstraction, not just pass at submission.</p>
+    </div>
+
+    <div class="subhead">Chart-Abstracted <span class="cnt">1 measure</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">SEP-1</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Severe Sepsis &amp; Septic Shock Management Bundle</div><div class="item-detail">HQR Secure Portal, quarterly. ≤5 discharges/quarter waives patient-level data, but population/sampling counts are still due.</div></div>
+    </div>
+    <div class="callout info">
+      <span class="tag">Always due</span>
+      <p>SEP-1 is the one required chart-abstracted measure under IQR — hospitals must submit <b>population and sampling size numbers every quarter</b>, regardless of case volume. Even a quarter with very few (or zero) qualifying discharges still requires that quarterly count to be submitted.</p>
+    </div>
+
+    <div class="subhead">Patient Experience <span class="cnt">1 measure</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">HCAHPS</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Patient experience survey</div><div class="item-detail">Monthly collection, quarterly submission. ≤5 eligible discharges/month waives that month's survey (submit zero).</div></div>
+    </div>
+
+    <div class="subhead">HAI Measures via NHSN <span class="cnt">3 measures</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">CAUTI-Onc</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">CAUTI SIR, oncology-stratified</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">CLABSI-Onc</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">CLABSI SIR, oncology-stratified</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Influenza HCP</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Flu vaccination coverage, healthcare personnel</div><div class="item-detail">Annual, flu-season window.</div></div>
+    </div>
+
+    <div class="subhead">Hybrid Measures <span class="cnt">2 measures</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">Hybrid HWR</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hybrid Hospital-Wide Readmission</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Hybrid HWM</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hybrid Hospital-Wide Mortality</div></div>
+    </div>
+    <div class="callout info">
+      <span class="tag">Threshold</span>
+      <p>Both require a <b>70% submission threshold</b> for Core Clinical Data Elements and linking variables (up to 2 missing labs and 2 missing vitals per patient are tolerated).</p>
+    </div>
+    <div class="callout warn">
+      <span class="tag">Different calendar</span>
+      <p>Hybrid measures don't follow the calendar-year cadence used by eCQMs, chart-abstracted, and structural measures. Their measurement period runs <b>July 1 – June 30</b> instead. The same July–June cadence also applies to the THA/TKA PRO-PM below — worth calling out explicitly so customers don't assume every measure resets on January 1.</p>
+    </div>
+
+    <div class="subhead">Structural Measures <span class="cnt">3 measures</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">Maternal Morbidity</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Structural attestation</div><div class="item-detail">No L&amp;D service? Attest "N/A" inside the measure itself — leaving it blank still counts as a missed submission. "Yes" answers must also name the perinatal QI collaborative.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Age Friendly</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Age Friendly Hospital Measure</div><div class="item-detail">5 domains, yes/no per domain, requires 51%+ hospital-wide compliance for patients 65+.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Patient Safety</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Patient Safety Structural Measure</div><div class="item-detail">Submitted via NHSN, annual.</div></div>
+    </div>
+
+    <div class="subhead">Patient-Reported Outcome <span class="cnt">1 measure</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">THA/TKA PRO-PM</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Total hip/knee arthroplasty PRO measure</div><div class="item-detail">Pre-op survey 0–90 days before procedure; post-op 300–425 days after. 50% completion threshold applies only at 25+ eligible cases. Measurement period runs July 1 – June 30, same as the Hybrid measures above.</div></div>
+    </div>
+
+    <div class="callout info">
+      <span class="tag">No submission needed</span>
+      <p><b>12 claims-based measures</b> (MORT-30 × 6, EDAC × 4, COMP-HIP-KNEE, ISCMR) are calculated by CMS directly from Medicare claims. They can't cause an IQR penalty — but each needs 25+ eligible cases before CMS reports a usable result.</p>
+    </div>
+  </section>
+
+  <!-- ============ PI ============ -->
+  <section class="prog-section" id="pi">
+    <div class="prog-head">
+      <div class="prog-code">PI</div>
+      <div class="prog-full">Medicare Promoting Interoperability Program</div>
+      <div class="prog-meta-row">
+        <span class="meta-chip">RY 2027</span>
+      </div>
+    </div>
+
+    <div class="fact-grid">
+      <div class="fact"><div class="k">Type</div><div class="v">Pay for reporting</div></div>
+      <div class="fact"><div class="k">Penalty</div><div class="v">75% of APU — largest of all 3</div></div>
+      <div class="fact"><div class="k">Submission</div><div class="v">Attestations + full-year eCQMs</div></div>
+      <div class="fact"><div class="k">Minimum score</div><div class="v">80 points required</div></div>
+    </div>
+
+    <div class="subhead">Point Structure <span class="cnt">100 possible points, 80 required to pass</span></div>
+    <div class="pi-points">
+      <div class="pi-bar-track">
+        <div class="pi-seg" style="width:20%;background:#166D66;">20</div>
+        <div class="pi-seg" style="width:30%;background:#1F8C7E;">30</div>
+        <div class="pi-seg" style="width:25%;background:#2AA98F;">25</div>
+        <div class="pi-seg" style="width:25%;background:#63C2A5;">25</div>
+      </div>
+      <div class="pi-legend">
+        <div><span class="dot" style="background:#166D66;"></span>Electronic Prescribing (20)</div>
+        <div><span class="dot" style="background:#1F8C7E;"></span>Health Information Exchange (30)</div>
+        <div><span class="dot" style="background:#2AA98F;"></span>Provider–Patient Exchange (25)</div>
+        <div><span class="dot" style="background:#63C2A5;"></span>Public Health &amp; Clinical Data Exchange (25)</div>
+      </div>
+      <p class="pi-threshold-note">80 out of these 100 required points clears the minimum threshold. <b>5 optional bonus points</b> are available on top (Public Health Registry, Clinical Data Registry, or Public Health Reporting via TEFCA — pick one).</p>
+    </div>
+
+    <div class="subhead">Objective Checklist</div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">E-Prescribing</span><span class="status st-mandatory">Required · 10 pts</span></div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Query PDMP</span><span class="status st-mandatory">Required · 10 pts</span></div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HIE — choose 1 of 3</span><span class="status st-mandatory">Required · 30 pts</span></div><div class="item-detail">Option A: Send + Receive/Reconcile referral loops (15+15). Option B: HIE Bi-Directional Exchange. Option C: Enable Exchange Under TEFCA.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Electronic Prior Authorization</span><span class="status st-voluntary">Optional in 2027</span></div><div class="item-detail">Unscored. "Yes" earns 10 bonus points; "No" doesn't hurt eligibility. Becomes mandatory (still unscored) in 2028.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Patient Electronic Access</span><span class="status st-mandatory">Required · 25 pts</span></div><div class="item-name">Provider to Patient Exchange</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Public Health &amp; Clinical Data Exchange</span><span class="status st-mandatory">Required · 25 pts</span></div><div class="item-detail">Electronic Case Reporting plus Immunization Registry, Syndromic Surveillance, e-Reportable Labs, AU/AR Surveillance, and the new UDI measure.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Registry Bonus</span><span class="status st-voluntary">Optional · 5 pts</span></div><div class="item-detail">Public Health Registry, Clinical Data Registry, or Public Health Reporting via TEFCA — choose one.</div></div>
+    </div>
+
+    <div class="subhead">What's New for RY 2027</div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">UDI Measure</span><span class="status st-new">New</span></div><div class="item-name">Unique Device Identifier — Public Health &amp; Clinical Data Exchange</div><div class="item-detail">Both "Yes" and "No" satisfy the requirement — a "No" answer doesn't risk program failure.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">2 Attestations Removed</span><span class="status st-removed">Since RY 2026</span></div><div class="item-name">ONC Direct Review &amp; ONC-ACB Surveillance</div></div>
+    </div>
+
+    <div class="callout warn">
+      <span class="tag">Looking ahead</span>
+      <p>Beginning RY 2029, HIE "Option A" (send + receive referral loops) goes away entirely — hospitals will need HIE Bi-Directional Exchange or TEFCA to earn those 30 points. Worth flagging early to customers still using Option A.</p>
+    </div>
+
+    <div class="callout info">
+      <span class="tag">Don't forget</span>
+      <p>PI also requires a <b>full year of eCQM data</b> on all required measures. Meeting the IQR eCQM requirement (see above) automatically satisfies this — it's not a separate submission.</p>
+    </div>
+  </section>
+
+  <!-- ============ OQR ============ -->
+  <section class="prog-section" id="oqr">
+    <div class="prog-head">
+      <div class="prog-code">OQR</div>
+      <div class="prog-full">Hospital Outpatient Quality Reporting Program</div>
+      <div class="prog-meta-row">
+        <span class="meta-chip">RY 2027</span>
+      </div>
+    </div>
+
+    <div class="fact-grid">
+      <div class="fact"><div class="k">Type</div><div class="v">Pay for reporting</div></div>
+      <div class="fact"><div class="k">Penalty</div><div class="v">2 percentage points off OPPS APU</div></div>
+      <div class="fact"><div class="k">Submission</div><div class="v">Yes — outpatient department only</div></div>
+      <div class="fact"><div class="k">Runs alongside</div><div class="v">Separate from IQR — own measures &amp; deadlines</div></div>
+    </div>
+
+    <div class="subhead">Abstracted <span class="cnt">2 measures</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">OP-18</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Median ED arrival-to-departure time, discharged patients</div><div class="item-detail">Quarterly. Removed beginning CY 2028.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">OP-23</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Head CT/MRI for stroke within 45 minutes</div><div class="item-detail">Quarterly.</div></div>
+    </div>
+
+    <div class="subhead">Web-Based Measures <span class="cnt">3 measures</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">OP-22</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Left Without Being Seen</div><div class="item-detail">Annual. Removed beginning CY 2028.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">OP-29</span><span class="status st-proposed">Proposed removal</span></div><div class="item-name">Appropriate follow-up interval, normal colonoscopy</div><div class="item-detail">Removal proposed for RY 2027 — not yet final. Confirm against the November 2026 final rule before dropping it.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">OP-31</span><span class="status st-voluntary">Voluntary</span></div><div class="item-name">Web-based measure</div><div class="item-detail">Voluntary participation — population/sample counts still required if a hospital elects to report it (see note below).</div></div>
+    </div>
+
+    <div class="subhead">Patient Experience <span class="cnt">1 measure</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">OAS CAHPS</span><span class="status st-mandatory">Mandatory, where applicable</span></div><div class="item-name">Outpatient and Ambulatory Surgery CAHPS Survey</div><div class="item-detail">Quarterly, only where outpatient surgical volume exists.</div></div>
+    </div>
+
+    <div class="subhead">eCQMs <span class="cnt">3 measures</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">STEMI (OP-40)</span><span class="status st-new">New · Mandatory</span></div><div class="item-name">ST-Segment Elevation Myocardial Infarction eCQM</div><div class="item-detail">All four quarters mandatory beginning RY 2027 — this is a new requirement.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">ECAT</span><span class="status st-voluntary">Final voluntary year</span></div><div class="item-name">Emergency Care Access &amp; Timeliness eCQM</div><div class="item-detail">Voluntary through RY 2027 — becomes mandatory RY 2028. Good year to pilot it.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">ExRad</span><span class="status st-voluntary">Voluntary</span></div><div class="item-name">Excessive radiation dose, diagnostic CT</div></div>
+    </div>
+
+    <div class="subhead">PRO-PMs <span class="cnt">2 measures</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">Information Transfer</span><span class="status st-new">New · Mandatory</span></div><div class="item-name">Patient understanding of recovery information</div><div class="item-detail">9-item survey, mandatory beginning RY 2027. Annual submission, Jan 1–May 15.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">THA/TKA PRO-PM</span><span class="status st-select">Mandatory 2028</span></div><div class="item-name">Total hip/knee arthroplasty PRO measure — outpatient side</div><div class="item-detail">Follows the same July 1 – June 30 measurement period cadence as its IQR counterpart.</div></div>
+    </div>
+
+    <div class="callout info">
+      <span class="tag">No submission needed</span>
+      <p><b>OP-10, OP-32, OP-35, OP-36, OP-39</b> are claims-based — CMS calculates these automatically with no separate submission.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="tag">Always due</span>
+      <p>Hospitals must submit <b>population and sample size counts</b> for required Abstracted measures and required Web-Based measures — even in quarters with low or zero volume. If a hospital elects to voluntarily report a Web-Based measure like OP-31, those counts become required too, for as long as the hospital participates.</p>
+    </div>
+
+    <div class="callout risk">
+      <span class="tag">Proposed — not final</span>
+      <p>The 2027 OPPS Proposed Rule would add <b>eCQM validation</b> to OQR for the first time, mirroring the inpatient validation process. Up to 32 cases/measure would be re-abstracted, requiring a 90% confidence interval upper bound of 75%+ to pass. STEMI (OP-40) would be first in line, since it enters mandatory reporting this same year. <b>Final rule expected November 2026</b> — treat this as directional, not confirmed, until then.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="brand">medisolv</div>
+      <div style="margin-top:6px;">CSM Quick Reference · Reporting Year 2027</div>
+    </div>
+    <div class="src">
+      Built from the FY 2027 IPPS/LTCH PPS Final Rule (CMS-1849-F) and the 2027 OPPS Proposed Rule (CMS-1850-P). Items marked <b>Proposed</b> are pending the final OPPS rule expected November 2026 — verify before presenting as settled to a customer. This is an internal quick-reference tool, not a substitute for the underlying CMS rule text.
+    </div>
+  </div>
+</footer>
+
+</body></html>
