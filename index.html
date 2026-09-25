@@ -2,7 +2,7 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RY 2027 Pay-for-Reporting Quick Reference — IQR · PI · OQR · IPFQR</title>
+<title>2027 Quality Reporting Quick Reference — IQR · PI · OQR · IPFQR · ORYX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -149,6 +149,22 @@
   .support.soon::before{ content:"\e8b5"; }  /* schedule */
   .support.no::before{ content:"\e14b"; color:var(--ui-mid); }  /* block */
 
+
+  /* ORYX measure matrix — flexbox table */
+  .mtable-wrap{ overflow-x:auto; }
+  .mtable{ display:flex; flex-direction:column; min-width:980px; }
+  .mrow{ display:flex; align-items:center; min-height:44px; padding:5px 0; border-bottom:1px solid var(--border); font-size:12px; }
+  .mrow > div{ padding:0 10px; }
+  .mhead{ background:var(--ui-dark); color:var(--ui-pale); font-size:11px; font-weight:700; text-transform:uppercase; line-height:1.2; border-bottom:none; }
+  .c-measure{ flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:2px; }
+  .c-fac{ flex:0 0 125px; }
+  .c-ms{ flex:0 0 250px; }
+  .c-ms .support{ margin-top:0; }
+  .m-name{ font-size:12px; }
+  .m-type{ font-size:12px; color:var(--ui-dark); }
+  .na{ color:var(--ui-mid); }
+  .m-note{ margin-top:15px; }
+
   /* Callouts — neutral pale blue + blue icon */
   .callout{
     margin-top:20px; border-radius:5px; padding:15px 20px; background:var(--ui-pale);
@@ -203,10 +219,10 @@
 <section class="overview" id="overview">
 <div class="intro">
   <div class="eyebrow">Internal · For Medisolv employees</div>
-  <h1>RY 2027 Pay-for-Reporting Quick Reference</h1>
-  <p class="sub">A guide for Medisolv CSMs covering IQR, Promoting Interoperability, OQR, and IPFQR. For each program, see which measures CMS requires in Reporting Year 2027, what Medisolv supports today or is adding, and what to talk through with each client.</p>
+  <h1>2027 Quality Reporting Quick Reference</h1>
+  <p class="sub">A guide for Medisolv CSMs covering IQR, Promoting Interoperability, OQR, IPFQR, and Joint Commission ORYX. For each program, see which measures CMS and Joint Commission require for 2027, what Medisolv supports today or is adding, and what to talk through with each client.</p>
   <p class="sub">Built from the FY 2027 IPPS/LTCH PPS Final Rule (CMS-1849-F) and the 2027 OPPS Proposed Rule (CMS-1850-P). Items marked <b>Proposed</b> are pending the final OPPS rule expected November 2026 — verify before presenting as settled to a customer. This is an internal quick-reference tool, not a substitute for the underlying CMS rule text.</p>
-  <div class="callout"><span class="ms">info</span><div><span class="tag">Rule #1</span><p>These are <b>pay-for-reporting</b> programs, not pay-for-performance. The hospital is penalized for failing to <i>submit</i> data — not for what the data shows.</p></div></div>
+  <div class="callout"><span class="ms">info</span><div><span class="tag">Rule #1</span><p>The CMS programs here are <b>pay-for-reporting</b> programs, not pay-for-performance. The hospital is penalized for failing to <i>submit</i> data — not for what the data shows.</p></div></div>
 </div>
 
 
@@ -221,6 +237,8 @@
     <button type="button" class="step" data-filter="oqr" aria-label="OQR"><span class="step-icon"><span class="ms">stethoscope</span></span><span class="step-label">OQR</span></button>
     <span class="step-line" aria-hidden="true"></span>
     <button type="button" class="step" data-filter="ipfqr" aria-label="IPFQR"><span class="step-icon"><span class="ms">psychology</span></span><span class="step-label">IPFQR</span></button>
+    <span class="step-line" aria-hidden="true"></span>
+    <button type="button" class="step" data-filter="oryx" aria-label="ORYX"><span class="step-icon"><span class="ms">verified</span></span><span class="step-label">ORYX</span></button>
   </div>
 </nav>
 
@@ -258,7 +276,6 @@
       <div class="item"><div class="item-top"><span class="item-code">CMS506</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Safe Use of Opioids, Concurrent Prescribing</div><div class="support yes">Medisolv supported · ENCOR-eh</div></div>
       <div class="item"><div class="item-top"><span class="item-code">PC-02</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Cesarean Birth</div><div class="item-detail">Zero Denominator Declaration expected if no labor &amp; delivery service.</div><div class="support yes">Medisolv supported · ENCOR-eh</div></div>
       <div class="item"><div class="item-top"><span class="item-code">PC-07</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Severe Obstetric Complications</div><div class="support yes">Medisolv supported · ENCOR-eh</div></div>
-      <div class="item"><div class="item-top"><span class="item-code">PC-08</span><span class="status st-voluntary">Available</span></div><div class="item-name">Joint Commission measure</div><div class="support soon">Coming Q1 2027 · ENCOR-eh · cloud &amp; on-prem</div></div>
       <div class="item"><div class="item-top"><span class="item-code">HH-Hypo</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hospital Harm — Severe Hypoglycemia</div><div class="support yes">Medisolv supported · ENCOR-eh</div></div>
       <div class="item"><div class="item-top"><span class="item-code">HH-Hyper</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hospital Harm — Severe Hyperglycemia</div><div class="support yes">Medisolv supported · ENCOR-eh</div></div>
       <div class="item"><div class="item-top"><span class="item-code">HH-ORAE</span><span class="status st-new">New · Mandatory</span></div><div class="item-name">Hospital Harm — Opioid-Related Adverse Events</div><div class="item-detail">Newly required starting RY 2027.</div><div class="support yes">Medisolv supported · ENCOR-eh</div></div>
@@ -516,6 +533,61 @@
     <div class="callout"><span class="ms">warning</span><div><span class="tag">Always due</span><p>The <b>DACA</b> (Data Accuracy and Completeness Acknowledgement) must be signed by <b>August 15, 2028</b> alongside the annual non-measure and chart-abstracted submissions. Missing it fails the program just like a missed measure.</p></div></div>
   </section>
 
+
+  <!-- ============ ORYX ============ -->
+  <section class="prog-section" id="sec-oryx">
+    <div class="prog-head">
+      <div class="prog-code">ORYX</div>
+      <div class="prog-full">Joint Commission Performance Measurement</div>
+      <div class="prog-meta-row">
+        <span class="meta-chip">CY 2027</span>
+      </div>
+    </div>
+
+    <div class="prog-top">
+      <div class="stake-card">
+        <div class="stake-top"><span class="stake-name">What's at stake</span></div>
+        <div class="flat-badge">
+          <span class="n">4 of 4</span>
+          <span class="l">quarters<br>required</span>
+        </div>
+        <p class="stake-desc">ORYX is a <b>Joint Commission accreditation requirement</b> for hospitals accredited under the Hospital Accreditation Program (HAP) — not a CMS payment program, so there's no payment reduction. Required measures are submitted for all four quarters of the calendar year.</p>
+      </div>
+      <div class="fact-grid">
+        <div class="fact"><div class="k">Type</div><div class="v">Accreditation requirement</div></div>
+        <div class="fact"><div class="k">Submission</div><div class="v">eCQM and/or chart-abstracted, all 4 quarters, via the DDSP</div></div>
+        <div class="fact"><div class="k">Changes for 2027</div><div class="v">None — no measures added, removed, or changed</div></div>
+        <div class="fact"><div class="k">Applies to</div><div class="v">Varies by facility type — see below</div></div>
+      </div>
+    </div>
+
+    <div class="subhead">Facility Types <span class="cnt">requirements depend on which one applies</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">HAP Large</span></div><div class="item-name">≥26 licensed beds <b>or</b> ≥50,000 outpatient visits. Requirements split by whether the hospital provides obstetrical services.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HAP Small</span></div><div class="item-name">&lt;26 licensed beds <b>and</b> &lt;50,000 outpatient visits. PC measures optional even with OB services.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">CAH</span></div><div class="item-name">State-designated rural Critical Access Hospitals following the CAH standards manual.</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">Psych</span></div><div class="item-name">Freestanding psychiatric hospitals, separately licensed and accredited — not a unit sharing the hospital's HCO ID.</div></div>
+    </div>
+    <p class="subnote m-note">Bed and outpatient volume are on the organization's Joint Commission Connect eAPP (Hospital Volume) or the DDSP HCO Characteristics tab.</p>
+
+    <div class="subhead">Measures by Facility Type <span class="cnt">8 measures · CY 2027</span></div>
+    <div class="mtable-wrap">
+      <div class="mtable" role="table" aria-label="ORYX measure requirements by facility type">
+        <div class="mrow mhead"><div class="c-measure">Measure</div><div class="c-fac">HAP Large + OB</div><div class="c-fac">HAP Large, no OB</div><div class="c-fac">HAP Small</div><div class="c-fac">CAH</div><div class="c-fac">Psych</div><div class="c-ms">Medisolv</div></div>
+        <div class="mrow"><div class="c-measure"><span class="item-code">HH-HYPO</span><span class="m-name">Hospital Harm — Severe Hypoglycemia</span><span class="m-type">eCQM</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-ms"><div class="support yes">Medisolv supported · ENCOR-eh</div></div></div>
+        <div class="mrow"><div class="c-measure"><span class="item-code">HH-HYPER</span><span class="m-name">Hospital Harm — Severe Hyperglycemia</span><span class="m-type">eCQM</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-ms"><div class="support yes">Medisolv supported · ENCOR-eh</div></div></div>
+        <div class="mrow"><div class="c-measure"><span class="item-code">PC-02</span><span class="m-name">Cesarean Birth (NTSV)</span><span class="m-type">eCQM</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="status st-voluntary">Optional</span></div><div class="c-fac"><span class="status st-voluntary">Optional</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-ms"><div class="support yes">Medisolv supported · ENCOR-eh</div></div></div>
+        <div class="mrow"><div class="c-measure"><span class="item-code">PC-06</span><span class="m-name">Unexpected Complications in Term Newborns</span><span class="m-type">eCQM or chart-abstracted</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="status st-voluntary">Optional</span></div><div class="c-fac"><span class="status st-voluntary">Optional</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-ms"><div class="support yes">Medisolv supported · ENCOR-eh (eCQM) &amp; ENCOR-a (abstracted)</div></div></div>
+        <div class="mrow"><div class="c-measure"><span class="item-code">PC-07</span><span class="m-name">Severe Obstetric Complications</span><span class="m-type">eCQM</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="status st-voluntary">Optional</span></div><div class="c-fac"><span class="status st-voluntary">Optional</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-ms"><div class="support yes">Medisolv supported · ENCOR-eh</div></div></div>
+        <div class="mrow"><div class="c-measure"><span class="item-code">PC-08</span><span class="m-name">Timely Treatment of Severe Hypertension</span><span class="m-type">eCQM</span></div><div class="c-fac"><span class="status st-voluntary">Optional</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="status st-voluntary">Optional</span></div><div class="c-fac"><span class="status st-voluntary">Optional</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-ms"><div class="support soon">Coming Q1 2027 · ENCOR-eh · cloud &amp; on-prem</div></div></div>
+        <div class="mrow"><div class="c-measure"><span class="item-code">HBIPS-2</span><span class="m-name">Hours of Physical Restraint Use</span><span class="m-type">Chart-abstracted</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-ms"><div class="support yes">Medisolv supported · ENCOR-a</div></div></div>
+        <div class="mrow"><div class="c-measure"><span class="item-code">HBIPS-3</span><span class="m-name">Hours of Seclusion Use</span><span class="m-type">Chart-abstracted</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="na" aria-label="Not applicable">—</span></div><div class="c-fac"><span class="status st-mandatory">Required</span></div><div class="c-ms"><div class="support yes">Medisolv supported · ENCOR-a</div></div></div>
+      </div>
+    </div>
+
+    <div class="callout"><span class="ms">info</span><div><span class="tag">One build, two programs</span><p>HH-HYPO, HH-HYPER, PC-02, and PC-07 are also IQR eCQMs, and HBIPS-2 and HBIPS-3 are also required for IPFQR — the same work satisfies both. <b>PC-06 and PC-08 are ORYX-only</b> — neither is part of a CMS program in 2027. PC-06 can be submitted as an eCQM or chart-abstracted.</p></div></div>
+    <div class="callout"><span class="ms">warning</span><div><span class="tag">Alignment is shifting</span><p>Joint Commission is moving away from aligning its measures with CMS under Accreditation 360. Requirements used to post in September or October to follow CMS; going forward they may post earlier or on a different schedule. Don't assume a CMS change carries over to ORYX, or the reverse.</p></div></div>
+  </section>
 </main>
 
 <footer>
