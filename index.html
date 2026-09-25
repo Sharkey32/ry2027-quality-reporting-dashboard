@@ -2,7 +2,7 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RY 2027 Pay-for-Reporting Quick Reference — IQR · PI · OQR</title>
+<title>RY 2027 Pay-for-Reporting Quick Reference — IQR · PI · OQR · IPFQR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -204,7 +204,7 @@
 <div class="intro">
   <div class="eyebrow">Internal · For Medisolv employees</div>
   <h1>RY 2027 Pay-for-Reporting Quick Reference</h1>
-  <p class="sub">A guide for Medisolv CSMs covering IQR, Promoting Interoperability, and OQR. For each program, see which measures CMS requires in Reporting Year 2027, what Medisolv supports today or is adding, and what to talk through with each client.</p>
+  <p class="sub">A guide for Medisolv CSMs covering IQR, Promoting Interoperability, OQR, and IPFQR. For each program, see which measures CMS requires in Reporting Year 2027, what Medisolv supports today or is adding, and what to talk through with each client.</p>
   <p class="sub">Built from the FY 2027 IPPS/LTCH PPS Final Rule (CMS-1849-F) and the 2027 OPPS Proposed Rule (CMS-1850-P). Items marked <b>Proposed</b> are pending the final OPPS rule expected November 2026 — verify before presenting as settled to a customer. This is an internal quick-reference tool, not a substitute for the underlying CMS rule text.</p>
   <div class="callout"><span class="ms">info</span><div><span class="tag">Rule #1</span><p>These are <b>pay-for-reporting</b> programs, not pay-for-performance. The hospital is penalized for failing to <i>submit</i> data — not for what the data shows.</p></div></div>
 </div>
@@ -219,6 +219,8 @@
     <button type="button" class="step" data-filter="pi" aria-label="PI"><span class="step-icon"><span class="ms">sync_alt</span></span><span class="step-label">PI</span></button>
     <span class="step-line" aria-hidden="true"></span>
     <button type="button" class="step" data-filter="oqr" aria-label="OQR"><span class="step-icon"><span class="ms">stethoscope</span></span><span class="step-label">OQR</span></button>
+    <span class="step-line" aria-hidden="true"></span>
+    <button type="button" class="step" data-filter="ipfqr" aria-label="IPFQR"><span class="step-icon"><span class="ms">psychology</span></span><span class="step-label">IPFQR</span></button>
   </div>
 </nav>
 
@@ -448,6 +450,72 @@
   </section>
 
 
+  <!-- ============ IPFQR ============ -->
+  <section class="prog-section" id="sec-ipfqr">
+    <div class="prog-head">
+      <div class="prog-code">IPFQR</div>
+      <div class="prog-full">Inpatient Psychiatric Facility Quality Reporting Program</div>
+      <div class="prog-meta-row">
+        <span class="meta-chip">RY 2027 → FY 2029 payment</span>
+      </div>
+    </div>
+
+    <div class="prog-top">
+      <div class="stake-card">
+        <div class="stake-top"><span class="stake-name">Penalty</span></div>
+        <div class="flat-badge">
+          <span class="n">−2pp</span>
+          <span class="l">off the IPF PPS<br>annual update</span>
+        </div>
+        <p class="stake-desc">Miss one submission, one quarter, one time, for any one measure and the facility fails IPFQR. The 2-percentage-point reduction applies to the annual update to the standard federal rate.</p>
+      </div>
+      <div class="fact-grid">
+        <div class="fact"><div class="k">Type</div><div class="v">Pay for reporting</div></div>
+        <div class="fact"><div class="k">Penalty</div><div class="v">2 percentage points off IPF PPS annual update</div></div>
+        <div class="fact"><div class="k">Submission</div><div class="v">Annual via HQR — due August 15, 2028</div></div>
+        <div class="fact"><div class="k">Applies to</div><div class="v">Freestanding psych hospitals &amp; separately licensed psych units</div></div>
+      </div>
+    </div>
+
+    <div class="subhead">Non-Measure Data <span class="cnt">4 data elements · facility-level</span></div>
+    <p class="subnote">Measurement period January 1 – December 31, 2027. Submitted annually through the HQR System by August 15, 2028.</p>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">Total Discharges</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Total annual discharges</div><div class="support no">Not supported by Medisolv</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">By Age Strata</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Annual discharges by age strata</div><div class="support no">Not supported by Medisolv</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">By Diagnosis</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Annual discharges by primary diagnostic code</div><div class="support no">Not supported by Medisolv</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">By Payer</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Annual discharges by payer</div><div class="support no">Not supported by Medisolv</div></div>
+    </div>
+
+    <div class="subhead">Chart-Abstracted <span class="cnt">7 measures</span></div>
+    <p class="subnote">Measurement period January 1 – December 31, 2027 (IMM-2 follows flu season). Submitted annually through the HQR System by August 15, 2028.</p>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">TR-1</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Transition Record with Specified Elements Received by Discharged Patients</div><div class="item-detail">CMS-stewarded (IPF Specifications Manual). 11 core data elements. Sampling optional.</div><div class="support yes">Medisolv supported · ENCOR-a</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">SMD</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Screening for Metabolic Disorders</div><div class="item-detail">Patients on routinely scheduled antipsychotics screened for BMI, blood pressure, blood glucose, and lipid panel. Sampling optional.</div><div class="support yes">Medisolv supported · ENCOR-a</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HBIPS-2</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hours of Physical Restraint Use</div><div class="item-detail">Not eligible for sampling. Events count in the month they occur, not the month of discharge.</div><div class="support yes">Medisolv supported · ENCOR-a</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HBIPS-3</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hours of Seclusion Use</div><div class="item-detail">Not eligible for sampling. Events count in the month they occur, not the month of discharge.</div><div class="support yes">Medisolv supported · ENCOR-a</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">SUB-3</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Alcohol &amp; Other Drug Use Disorder Treatment Provided or Offered at Discharge</div><div class="item-detail">Inactive for Joint Commission ORYX in 2027 — still required for CMS.</div><div class="support yes">Medisolv supported · ENCOR-a</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">SUB-3a</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Alcohol &amp; Other Drug Use Disorder Treatment at Discharge</div><div class="item-detail">Inactive for Joint Commission ORYX in 2027 — still required for CMS.</div><div class="support yes">Medisolv supported · ENCOR-a</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">IMM-2</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Influenza Immunization</div><div class="item-detail">Measurement period October 1, 2027 – March 31, 2028. Inactive for Joint Commission ORYX in 2027 — still required for CMS.</div><div class="support yes">Medisolv supported · ENCOR-a</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">SUB-2/2a · TOB-3/3a</span><span class="status st-removed">Removed</span></div><div class="item-name">Substance use &amp; tobacco measures</div><div class="item-detail">Removed beginning RY 2026 — no longer collected for IPFQR.</div></div>
+    </div>
+    <div class="callout"><span class="ms">info</span><div><span class="tag">CMS vs. Joint Commission</span><p>Only <b>HBIPS-2 and HBIPS-3</b> are required for both IPFQR and Joint Commission ORYX in 2027. IMM-2, SUB-3, and SUB-3a are inactive for ORYX, and TR-1 and SMD aren't Joint Commission measures — but <b>all seven are still required for IPFQR</b>. Worth confirming with facilities that scale back abstraction to match ORYX.</p></div></div>
+
+    <div class="subhead">Patient Experience <span class="cnt">1 measure</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">PIX Survey</span><span class="status st-voluntary">Voluntary</span></div><div class="item-name">Psychiatric Inpatient Experience Survey</div><div class="item-detail">23 questions across 4 domains, delivered 24 hours before planned discharge to patients 13+. Measurement period January 1 – December 31, 2027; submitted through HQR by August 15, 2028.</div><div class="support no">Not supported by Medisolv</div></div>
+    </div>
+
+    <div class="subhead">Survey Measure <span class="cnt">1 measure</span></div>
+    <div class="checklist">
+      <div class="item"><div class="item-top"><span class="item-code">IPF-PAI</span><span class="status st-new">New · Voluntary</span></div><div class="item-name">Inpatient Psychiatric Facility Patient Assessment Instrument</div><div class="item-detail">Voluntary starting October 1, 2027; mandatory for admissions on or after July 1, 2028. Survey completed at admission and discharge for every patient 18+, any payer. Submitted quarterly to iQIES.</div><div class="support no">Not supported by Medisolv</div></div>
+    </div>
+    <div class="callout"><span class="ms">warning</span><div><span class="tag">Get ready now</span><p>Once mandatory, at least <b>50% of IPF-PAI surveys must be 100% complete</b> (70% beginning 2030) — falling short can trigger the same 2-point reduction. First voluntary quarter is Q4 2027 (due February 15, 2028); first mandatory quarter is Q3 2028 (due November 15, 2028).</p></div></div>
+
+    <div class="callout"><span class="ms">info</span><div><span class="tag">No submission needed</span><p><b>4 claims-based measures</b> are calculated by CMS directly from claims: Follow-Up After Psychiatric Hospitalization (July 1, 2026 – June 30, 2027), Medication Continuation Following Discharge, 30-Day Unplanned Readmission, and 30-Day ED Visit (each July 1, 2025 – June 30, 2027). The ED Visit window was lengthened for RY 2027 to match the readmission measure.</p></div></div>
+
+    <div class="callout"><span class="ms">warning</span><div><span class="tag">Always due</span><p>The <b>DACA</b> (Data Accuracy and Completeness Acknowledgement) must be signed by <b>August 15, 2028</b> alongside the annual non-measure and chart-abstracted submissions. Missing it fails the program just like a missed measure.</p></div></div>
+  </section>
+
 </main>
 
 <footer>
@@ -467,8 +535,12 @@
       if(push) history.replaceState(null,'', '#'+f);
     }
     steps.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.filter, true); }); });
-    var h=location.hash.replace('#','');
-    show(ids.indexOf(h)>-1 ? h : ids[0], false);
+    function fromHash(){
+      var h=location.hash.replace('#','');
+      show(ids.indexOf(h)>-1 ? h : ids[0], false);
+    }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
   })();
 </script>
 
