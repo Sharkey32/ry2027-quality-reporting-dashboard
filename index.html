@@ -230,6 +230,15 @@
   .item-code{ font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:13.5px;}
   .item-name{ font-size:12.8px; color:var(--slate); margin-top:2px; }
   .item-detail{ font-size:12.3px; color:var(--slate-soft); line-height:1.4; }
+  .support{
+    display:flex; align-items:center; gap:6px; font-size:11.8px; line-height:1.35;
+    padding:5px 8px; border-radius:6px; margin-top:auto;
+  }
+  .support::before{ font-weight:700; flex:none; }
+  .support.yes{ background:var(--good-soft); color:var(--good); }
+  .support.yes::before{ content:"\2713"; }
+  .support.no{ background:var(--gray-chip); color:var(--slate); }
+  .support.no::before{ content:"\2014"; }
 
   .status{
     font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.05em;
@@ -380,7 +389,7 @@
       <div class="item"><div class="item-top"><span class="item-code">PC-02</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Cesarean Birth</div><div class="item-detail">Zero Denominator Declaration expected if no labor &amp; delivery service.</div></div>
       <div class="item"><div class="item-top"><span class="item-code">PC-07</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Severe Obstetric Complications</div></div>
       <div class="item"><div class="item-top"><span class="item-code">PC-08</span><span class="status st-voluntary">Available</span></div><div class="item-name">Joint Commission measure</div><div class="item-detail">Available in Medisolv for 2027.</div></div>
-      <div class="item"><div class="item-top"><span class="item-code">HH-Hypo</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hospital Harm — Severe Hypoglycemia</div></div>
+      <div class="item"><div class="item-top"><span class="item-code">HH-Hypo</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hospital Harm — Severe Hypoglycemia</div><div class="support yes">Medisolv supported · ENCOR for Electronic Hospital Measures (ENCOR-e)</div></div>
       <div class="item"><div class="item-top"><span class="item-code">HH-Hyper</span><span class="status st-mandatory">Mandatory</span></div><div class="item-name">Hospital Harm — Severe Hyperglycemia</div></div>
       <div class="item"><div class="item-top"><span class="item-code">HH-ORAE</span><span class="status st-new">New · Mandatory</span></div><div class="item-name">Hospital Harm — Opioid-Related Adverse Events</div><div class="item-detail">Newly required starting RY 2027.</div></div>
       <div class="item"><div class="item-top"><span class="item-code">HH-PI</span><span class="status st-select">Recommended pick</span></div><div class="item-name">Hospital Harm — Pressure Injury</div><div class="item-detail">Becomes mandatory RY 2028 — select now to build the workflow early.</div></div>
